@@ -8,7 +8,7 @@ app.use(app.router);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-
+// Error Handling
 app.use(function(req, res, next){
   next(new NotFound(req.url));
 });
@@ -35,18 +35,19 @@ app.error(function(err, req, res, next){
   }
 });
 
-// Here we assume all errors as 500 for the simplicity of
-// this demo, however you can choose whatever you like
-
 app.error(function(err, req, res){
     console.log(err);
     res.send("zomg it broked");
 });
 
+
+
 app.get('/', function(request, response) {
   response.render('layout');
 });
 
+
+// Error URLs
 app.get('/404', function(req, res){
   throw new NotFound(req.url);
 });
