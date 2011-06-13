@@ -29,7 +29,7 @@ NotFound.prototype.__proto__ = Error.prototype;
 
 app.error(function(err, req, res, next){
   if (err instanceof NotFound) {
-    res.send("zomg not found");
+    res.render('404');
   } else {
     next(err);
   }
@@ -37,13 +37,13 @@ app.error(function(err, req, res, next){
 
 app.error(function(err, req, res){
     console.log(err);
-    res.send("zomg it broked");
+    res.render("500");
 });
 
 
 
 app.get('/', function(request, response) {
-  response.render('layout');
+  response.render('main');
 });
 
 
