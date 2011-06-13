@@ -3,7 +3,10 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 // Config
-app.use(app.router);
+app.configure(function(){
+                app.use(app.router);
+                app.use(express.static(__dirname + '/public'));
+            });
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
