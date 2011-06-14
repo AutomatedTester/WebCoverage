@@ -2,6 +2,10 @@ body {
     background:black;
     color:white !important;
     font-family:Verdana;
+    font-size:8px;
+}
+a {
+  color:white !important;
 }
 
 h1 {
@@ -11,7 +15,7 @@ h1 {
 
 .placement {
     width:800px;
-    padding:0 120px 0 120px;
+    padding:0 10% 0 10%;
     float:left;
 }
 
