@@ -1,6 +1,6 @@
 var express = require('express');
 
-var app = express.createServer(express.logger());
+var app = module.exports = express.createServer(express.logger());
 
 // Config
 app.configure(function(){
@@ -59,7 +59,7 @@ app.get('/500', function(req, res, next){
   next(new Error('keyboard cat!'));
 });
 
-
+require('./routes/posts')(app);
 
 var port = process.env.PORT || 3000;
 console.log("Listening on " + port);
