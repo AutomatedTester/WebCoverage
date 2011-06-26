@@ -44,11 +44,10 @@ app.error(function(err, req, res){
     res.render("500");
 });
 
-
-
 app.get('/', function(request, response) {
   response.render('main');
 });
+
 
 
 // Error URLs
