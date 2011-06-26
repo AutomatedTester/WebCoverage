@@ -4,12 +4,13 @@ var app = module.exports = express.createServer(express.logger());
 
 // Config
 app.configure(function(){
-                app.use(app.router);
-                app.use(express.static(__dirname + '/public'));
-            });
-
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
+});
 
 // Error Handling
 app.use(function(req, res, next){
